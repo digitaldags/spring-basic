@@ -29,4 +29,20 @@ public class UserServiceImpl implements UserService {
         }
         return userList;
     }
+
+    @Override
+    public User getUser(Long id) {
+        UserEntity userEntity = userRepository.getOne(id);
+        return new User(userEntity.getName(), userEntity.getEmail(), userEntity.getMobileNumber());
+    }
+
+    @Override
+    public void updateUser(Long id, User user) {
+        userRepository.update(user.getName(), user.getEmail(), user.getMobileNumber(), id);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        userRepository.delete(userRepository.getOne(id));
+    }
 }

@@ -1,5 +1,7 @@
 package com.spring.springbasic.user.model.entity;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "USERS")
+@DynamicUpdate
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
