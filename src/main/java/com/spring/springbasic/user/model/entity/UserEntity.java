@@ -1,7 +1,9 @@
-package com.spring.springbasic.user.entity;
+package com.spring.springbasic.user.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -9,6 +11,7 @@ import javax.persistence.Table;
 @Table(name = "USERS")
 public class UserEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "name")
@@ -22,9 +25,7 @@ public class UserEntity {
     @Column(name = "mobile_number")
     private String mobileNumber;
 
-    // Constructor
     public UserEntity() {
-
     }
 
     public UserEntity(Long id, String name, String email, String mobileNumber) {
@@ -34,7 +35,6 @@ public class UserEntity {
         this.mobileNumber = mobileNumber;
     }
 
-    // Getter Setters
     public Long getId() {
         return id;
     }
